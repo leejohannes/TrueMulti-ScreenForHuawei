@@ -5,7 +5,11 @@ powershell -c Disable-PnpDevice -InstanceId ((Get-WmiObject Win32_DesktopMonitor
 echo.
 echo 可以连接多屏协同了
 echo 扩展模式还得去高级显示设置打开从桌面删除再关闭
+set a=n
+set /p a=是否去系统显示设置？y/n:
+if %a%==n goto NEXT
 start ms-settings:display
+:NEXT
 ::还得加个“阻止windows使用此显示器”功能,目前没找到
 set a=n
 set /p a=是否恢复？y/n:
